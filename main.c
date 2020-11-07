@@ -8,17 +8,20 @@ int main(int argc, char *argv[]) {
 	int i;
 	int grade[5];
 	int sum = 0;
+	int *ptr;
 	
 	for(i=0; i<5; i++)
 	{
+		ptr = grade+i;
 		printf("input Value (%i) : ", i);
-		scanf("%d", &grade[i]);
+		scanf("%d", ptr);
 	}
 	
 	for(i=0; i<5; i++)
 	{
-		sum += grade[i];
-		printf("grade[%d] = %d\n", i, grade[i]);
+		ptr = &grade[i];
+		sum += *ptr;
+		printf("grade[%d] = %d\n", i, *ptr);
 	}
 	
 	printf("\n average : %i\n", sum/5);
